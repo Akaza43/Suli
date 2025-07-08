@@ -3,13 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useSession, signIn, signOut } from "next-auth/react";
 import Loading from '@/ui/loading';
 import { AccessButton } from '@/components/buttons/AccessButton';
-import BlockchainPage from './Halaman/3-blockchain/page';
-import InvestingPage from './Halaman/2-investing/page';
-import LiveclassPage from './Halaman/4-liveclass/page';
+import BlockchainPage from './Halaman/modul-level-2/page';
+import InvestingPage from './Halaman/modul-level-1/page';
+import LiveclassPage from './Halaman/modul-level-3/page';
 // import MargincallPage from './Halaman/5-margincall/page';
 // import SoonPage from './Halaman/7-soon/page';
-import TradingPage from './Halaman/1-trading/page';
-import AllClassesPage from './Halaman/0-all-classes/page';
+import TradingPage from './Halaman/modul-level-0/page';
+import AllClassesPage from './Halaman/all-classes/page';
 import { FaPlay } from 'react-icons/fa';
 
 export default function HomePage() {
@@ -19,8 +19,8 @@ export default function HomePage() {
   const [isTrialUser, setIsTrialUser] = useState(false);
 
   const links = {
-    startLearning: "/Halaman/page/4-liveclass/1-The-Art-of-Crypto-Trading/1-Intro-to-Modern-Day-Crypto-Trading",
-    moreInfo: "/Halaman/page/4-liveclass/1-The-Art-of-Crypto-Trading"
+    startLearning: "/Halaman/page/modul-level-0/1/1",
+    moreInfo: "/Halaman/page/modul-level-0/1"
   };
 
   useEffect(() => {
@@ -133,9 +133,9 @@ export default function HomePage() {
           <div className="mb-6 mt-0">
             <div className="p-2 md:p-6 rounded-xl transition-all duration-300 relative overflow-visible" style={{marginTop: '-35px', background: 'transparent'}}>
               <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-                <div className="w-full order-1 mb-3 md:mb-0 md:order-1 md:w-1/2 flex flex-col justify-center">
+                <div className="w-full order-1 mb-3 md:mb-0 md:order-1 md:w-1/2 flex flex-col justify-center -ml-[22px]">
                   <h1 className="hidden md:block text-xl md:text-5xl font-bold text-white leading-tight">
-                    The Art of <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Crypto Trading</span>
+                    On Bording <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Premium Membership</span>
                   </h1>
                   <div className="hidden md:flex gap-2 mt-3">
                     <a href={links.startLearning} className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-white to-white text-black text-base font-semibold rounded-lg hover:opacity-90 transition-all duration-300">
@@ -150,8 +150,8 @@ export default function HomePage() {
                 <div className="w-full md:w-1/2 space-y-2 order-2 md:order-2 flex flex-col items-center md:items-end">
                   <div className="relative group border border-gray-800/30 rounded-xl overflow-hidden w-full max-w-xl">
                     <img
-                      src="/images/art-of-crypto-trading.jpg"
-                      alt="The Art of Crypto Trading"
+                      src="/images/1.webp"
+                      alt="On Bording"
                       className="w-full h-auto max-h-[480px] mt-0 md:mt-8"
                       style={{ display: 'block' }}
                     />

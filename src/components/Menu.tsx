@@ -36,17 +36,6 @@ const Menu = () => {
           <span className="text-xs">MODUL</span>
         </button>
         <button
-          onClick={() => router.push(navigationLinks.research)}
-          className={`flex flex-col items-center p-4 flex-1 ${
-            isActive(pathname, navigationLinks.research)
-              ? "text-blue-500"
-              : "text-gray-500 hover:text-blue-500"
-          }`}
-        >
-          <IoDocumentTextOutline className="text-xl mb-1" />
-          <span className="text-xs">RESEARCH</span>
-        </button>
-        <button
           onClick={handleKomunitasClick}
           className={`flex flex-col items-center p-4 flex-1 ${
             isActive(pathname, navigationLinks.komunitas)

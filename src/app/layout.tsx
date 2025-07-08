@@ -10,7 +10,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Akademi Crypto App",
+  title: "Trade With Suli App",
   description: "Learn about crypto trading",
   icons: {
     icon: "/favicon.ico"
