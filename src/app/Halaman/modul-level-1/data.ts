@@ -1,0 +1,92 @@
+export const investingData = [
+  {
+    title: "-",
+    image: "/images/B1.webp", 
+    link: "/Halaman/page/2/1",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B2.webp", 
+    link: "/Halaman/page/2/2",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B3.webp", 
+    link: "/Halaman/page/2/3",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B4.webp", 
+    link: "/Halaman/page/2/4",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B5.webp", 
+    link: "/Halaman/page/2/5",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B6.webp", 
+    link: "/Halaman/page/2/6",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B7.webp", 
+    link: "/Halaman/page/2/7",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B8.webp", 
+    link: "/Halaman/page/2/8",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B9.webp", 
+    link: "/Halaman/page/2/9",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B10.webp", 
+    link: "/Halaman/page/2/10",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B11.webp", 
+    link: "/Halaman/page/2/11",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B12.webp", 
+    link: "/Halaman/page/2/12",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B13.webp", 
+    link: "/Halaman/page/2/13",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B14.webp", 
+    link: "/Halaman/page/2/14",
+    category: "Modul Level 1",
+  },
+  {
+    title: "-",
+    image: "/images/B15.webp", 
+    link: "/Halaman/page/2/15",
+    category: "Modul Level 1",
+  },
+];
