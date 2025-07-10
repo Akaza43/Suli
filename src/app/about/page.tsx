@@ -39,7 +39,7 @@ export default function AboutPage() {
       </div>
 
       {/* Button Section */}
-      <a href="https://akademicrypto.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://tradewithsuli.com/" target="_blank" rel="noopener noreferrer">
         <button className="w-full max-w-xs px-6 py-3 bg-red-600 text-white rounded-lg shadow-lg hover:bg-red-700 transition">
           Original Version
         </button>
@@ -47,7 +47,7 @@ export default function AboutPage() {
 
       {/* Footer Section */}
       <p className="text-xs md:text-sm text-gray-400 text-center">
-        © 2025 Akademi Crypto. All rights reserved.
+        © 2025 Trade With Suli Crypto. All rights reserved.
       </p>
     </div>
   );

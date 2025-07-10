@@ -1,30 +1,9 @@
 export const Data = [
   {
     id: "1",
-    title: "-",
-    drive: "-",
+    title: "Crypto Judi Atau Investasi",
+    drive: "https://drive.google.com/file/d/1dHLplu_4yyMkk9VpJaHgKWjmvU9g95k5/view?usp=drive_link",
     link: "/Halaman/page/1/6/1",
-    category: "-",
-  },
-  {
-    id: "2",
-    title: "-",
-    drive: "-",
-    link: "/Halaman/page/1/6/2",
-    category: "-",
-  },
-  {
-    id: "3",
-    title: "-",
-    drive: "-",
-    link: "/Halaman/page/1/6/3",
-    category: "-",
-  },
-  {
-    id: "4",
-    title: "-",
-    drive: "-",
-    link: "/Halaman/page/1/6/4",
-    category: "-",
+    category: "Crypto Judi Atau Investasi",
   },
 ];

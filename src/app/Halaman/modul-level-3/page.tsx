@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { liveclassData } from './data';
+import { lev3Data } from './data';
 
 export default function InvestingPage() {
   const [imgError, setImgError] = useState<{ [key: string]: boolean }>({});
@@ -85,7 +85,7 @@ export default function InvestingPage() {
           }
         `}
       >
-        {liveclassData.map((item, index) => (
+        {lev3Data.map((item, index) => (
           <a
             key={index}
             href={item.link}

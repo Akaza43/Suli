@@ -5,7 +5,8 @@ import { useState, useEffect } from 'react';
 import { tradingData } from '../modul-level-0/data';
 import { investingData } from '../modul-level-1/data';
 import { blockchainData } from '../modul-level-2/data';
-import { liveclassData } from '../modul-level-3/data';
+import { lev3Data } from '../modul-level-3/data';
+import { liveclassData } from '../modul-level-4/data';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 
 export default function AllClassesPage() {
@@ -18,6 +19,7 @@ export default function AllClassesPage() {
     ...tradingData,
     ...investingData,
     ...blockchainData,
+    ...lev3Data,
   ];
 
   function handleImageError(title: string): void {

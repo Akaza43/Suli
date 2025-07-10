@@ -1,30 +1,9 @@
 export const Data = [
   {
     id: "1",
-    title: "-",
-    drive: "-",
-    link: "/Halaman/page/2/1/1",
-    category: "-",
-  },
-  {
-    id: "2",
-    title: "-",
-    drive: "-",
-    link: "/Halaman/page/2/1/2",
-    category: "-",
-  },
-  {
-    id: "3",
-    title: "-",
-    drive: "-",
-    link: "/Halaman/page/2/1/3",
-    category: "-",
-  },
-  {
-    id: "4",
-    title: "-",
-    drive: "-",
-    link: "/Halaman/page/2/1/4",
-    category: "-",
+    title: "Probability Game",
+    drive: "https://drive.google.com/file/d/1bwojPB5O8uf1FAuy_NTUaH5f4UDErbjG/view?usp=drive_link",
+    link: "/Halaman/page/2/13/1",
+    category: "Probability Game",
   },
 ];

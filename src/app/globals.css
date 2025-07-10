@@ -46,19 +46,19 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(120, 2, 255, 0.5); /* red-600 with opacity */
+  background: rgb(2, 141, 255); /* red-600 with opacity */
   border-radius: 5px;
   border: 2px solid #111827;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(89, 0, 255, 0.8);
+  background: rgb(0, 132, 255);
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(140, 0, 255, 0.5) #111827;
+  scrollbar-color: rgb(0, 132, 255) #111827;
 }
 
 .prevent-scroll {
