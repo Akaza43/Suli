@@ -86,7 +86,7 @@ export default function KomunitasPage() {
 
       <div className="relative z-10">
         <h1 className="text-3xl font-bold text-white mb-8 text-center pt-8">
-          JOIN AC FOR ALL NOW!
+          JOIN SULI FOR ALL NOW!
           <div className="mt-2 w-16 h-1 mx-auto bg-blue-500 rounded" />
         </h1>
 
