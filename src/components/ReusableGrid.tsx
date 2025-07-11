@@ -41,7 +41,7 @@ export const ReusableGrid: React.FC<{ data: GridItem[] }> = ({ data }) => {
                       {item.discountPrice ? (
                         <div className="flex items-center gap-2">
                           <span className="text-sm text-gray-400 line-through">{item.price}</span>
-                          <span className="text-sm text-green-400 font-semibold">{item.discountPrice}</span>
+                          <span className="text-sm text-blue-400 font-semibold">{item.discountPrice}</span>
                         </div>
                       ) : (
                         <span className="text-sm text-gray-400">{item.price}</span>
@@ -51,7 +51,7 @@ export const ReusableGrid: React.FC<{ data: GridItem[] }> = ({ data }) => {
                 </div>
               </div>
               <div className="p-4">
-                <button className="w-full px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-purple-500/20">
+                <button className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
                   <span>Get Access</span>
                 </button>
               </div>
@@ -62,8 +62,8 @@ export const ReusableGrid: React.FC<{ data: GridItem[] }> = ({ data }) => {
 
       {selectedItem && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black p-6 rounded-3xl max-w-md w-full mx-4 shadow-2xl transform transition-all duration-300 scale-100 border border-purple-500" style={{ animation: "fadeIn 0.3s ease-in-out" }}>
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-purple-500 rounded"></div>
+          <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black p-6 rounded-3xl max-w-md w-full mx-4 shadow-2xl transform transition-all duration-300 scale-100 border border-blue-500" style={{ animation: "fadeIn 0.3s ease-in-out" }}>
+            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-500 rounded"></div>
             <h3 className="text-2xl font-bold text-white mb-4 text-center">{selectedItem.title}</h3>
             <p className="text-sm text-gray-400 mb-4 text-center">{selectedItem.description}</p>
             {selectedItem.price && (
@@ -71,7 +71,7 @@ export const ReusableGrid: React.FC<{ data: GridItem[] }> = ({ data }) => {
                 {selectedItem.discountPrice ? (
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-sm text-gray-400 line-through">{selectedItem.price}</span>
-                    <span className="text-lg text-green-400 font-semibold">{selectedItem.discountPrice}</span>
+                    <span className="text-lg text-blue-400 font-semibold">{selectedItem.discountPrice}</span>
                   </div>
                 ) : (
                   <span className="text-lg text-gray-400">{selectedItem.price}</span>
@@ -83,7 +83,7 @@ export const ReusableGrid: React.FC<{ data: GridItem[] }> = ({ data }) => {
                 <button
                   key={index}
                   onClick={() => window.open(button.link, "_blank")}
-                  className="block w-full px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white rounded-lg text-center font-medium shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
+                  className="block w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg text-center font-medium shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <IoArrowForwardOutline className="h-5 w-5" />

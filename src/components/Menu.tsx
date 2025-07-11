@@ -28,8 +28,8 @@ const Menu = () => {
           onClick={() => router.push(navigationLinks.home)}
           className={`flex flex-col items-center p-4 flex-1 ${
             isActive(pathname, navigationLinks.home)
-              ? "text-purple-500"
-              : "text-gray-500 hover:text-purple-500"
+              ? "text-blue-500"
+              : "text-gray-500 hover:text-blue-500"
           }`}
         >
           <IoBookOutline className="text-xl mb-1" />
@@ -39,8 +39,8 @@ const Menu = () => {
           onClick={handleKomunitasClick}
           className={`flex flex-col items-center p-4 flex-1 ${
             isActive(pathname, navigationLinks.komunitas)
-              ? "text-green-500"
-              : "text-gray-500 hover:text-green-500"
+              ? "text-gray-500"
+              : "text-gray-500 hover:text-blue-500"
           }`}
         >
           <IoBookOutline className="text-xl mb-1" />

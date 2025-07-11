@@ -56,7 +56,7 @@ const Nav = () => {
         <div className="flex items-center justify-between h-14 lg:h-16">
           <div className="flex items-center space-x-4">
             {pathname !== '/' && (
-              <Link href="/" className="text-gray-200 hover:text-purple-600">
+              <Link href="/" className="text-gray-200 hover:text-blue-600">
                 <IoIosArrowDropleftCircle className="text-2xl" />
               </Link>
             )}
@@ -70,16 +70,16 @@ const Nav = () => {
           <div className="hidden md:flex md:items-center md:space-x-4">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="text-gray-200 hover:text-purple-600 px-3 py-2 flex items-center space-x-2"
+              className="text-gray-200 hover:text-blue-600 px-3 py-2 flex items-center space-x-2"
             >
               <BiSearch className="text-xl" />
               <span>Search</span>
             </button>
-            <Link href="/" onClick={handleLinkClick} className="text-gray-200 hover:text-purple-600 px-3 py-2 flex items-center space-x-2">
+            <Link href="/" onClick={handleLinkClick} className="text-gray-200 hover:text-blue-600 px-3 py-2 flex items-center space-x-2">
               <AiOutlineHome className="text-xl" />
               <span>Home</span>
             </Link>
-            <Link href="/about" onClick={handleLinkClick} className="text-gray-200 hover:text-purple-600 px-3 py-2 flex items-center space-x-2">
+            <Link href="/about" onClick={handleLinkClick} className="text-gray-200 hover:text-blue-600 px-3 py-2 flex items-center space-x-2">
               <BiInfoCircle className="text-xl" />
               <span>About</span>
             </Link>
@@ -91,7 +91,7 @@ const Nav = () => {
               <div className="relative">
                 <button
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
-                  className="flex items-center space-x-2 text-gray-200 hover:text-purple-600"
+                  className="flex items-center space-x-2 text-gray-200 hover:text-blue-600"
                 >
                   <img
                     src={session.user?.image || ''}
@@ -102,18 +102,18 @@ const Nav = () => {
                 </button>
                 
                 {isProfileOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-black border border-purple-800 rounded-md shadow-lg">
+                  <div className="absolute right-0 mt-2 w-48 bg-black border border-blue-800 rounded-md shadow-lg">
                     <div className="py-1">
                       <Link
                         href="/profile"
-                        className="block px-4 py-2 text-gray-200 hover:text-purple-600"
+                        className="block px-4 py-2 text-gray-200 hover:text-blue-600"
                         onClick={() => setIsProfileOpen(false)}
                       >
                         Profile
                       </Link>
                       <button
                         onClick={() => signOut()}
-                        className="flex w-full text-left px-4 py-2 text-gray-200 hover:text-purple-600 items-center space-x-2"
+                        className="flex w-full text-left px-4 py-2 text-gray-200 hover:text-blue-600 items-center space-x-2"
                       >
                         <BiLogOut className="text-xl" />
                         <span>Sign Out</span>
@@ -125,7 +125,7 @@ const Nav = () => {
             ) : (
               <button
                 onClick={() => signIn("discord")}
-                className="text-gray-200 hover:text-purple-600 px-3 py-2"
+                className="text-gray-200 hover:text-blue-600 px-3 py-2"
               >
                 Sign In
               </button>
@@ -136,7 +136,7 @@ const Nav = () => {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="text-gray-200 hover:text-purple-600 p-2"
+              className="text-gray-200 hover:text-blue-600 p-2"
               aria-label="Search"
             >
               <BiSearch className="text-2xl" />
@@ -144,7 +144,7 @@ const Nav = () => {
             <button
               ref={buttonRef}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-200 hover:text-purple-600 p-2"
+              className="text-gray-200 hover:text-belu-600 p-2"
               aria-label="Menu"
             >
               <IoSettingsOutline className="text-2xl" />
@@ -156,11 +156,11 @@ const Nav = () => {
         {isOpen && (
           <div 
             ref={menuRef}
-            className="md:hidden fixed top-16 left-0 right-0 bg-black/60 backdrop-blur-2xl border-t border-purple-800/30 max-h-[calc(100vh-4rem)] overflow-y-auto"
+            className="md:hidden fixed top-16 left-0 right-0 bg-black/60 backdrop-blur-2xl border-t border-blue-800/30 max-h-[calc(100vh-4rem)] overflow-y-auto"
           >
             {/* Mobile Profile Section */}
             {session ? (
-              <div className="px-4 py-3 border-b border-purple-800/30 bg-black/70 backdrop-blur-2xl">
+              <div className="px-4 py-3 border-b border-blue-800/30 bg-black/70 backdrop-blur-2xl">
                 <div className="flex items-center space-x-3">
                   <img
                     src={session.user?.image || ''}
@@ -173,14 +173,14 @@ const Nav = () => {
                   <Link
                     href="/profile"
                     onClick={handleLinkClick}
-                    className="flex px-3 py-2 text-gray-200 hover:text-purple-600 items-center space-x-2"
+                    className="flex px-3 py-2 text-gray-200 hover:text-blue-600 items-center space-x-2"
                   >
                     <BiUser className="text-xl" />
                     <span>Profile</span>
                   </Link>
                   <button
                     onClick={() => signOut()}
-                    className="flex w-full text-left px-3 py-2 text-gray-200 hover:text-purple-600 items-center space-x-2"
+                    className="flex w-full text-left px-3 py-2 text-gray-200 hover:text-blue-600 items-center space-x-2"
                   >
                     <BiLogOut className="text-xl" />
                     <span>Sign Out</span>
@@ -188,10 +188,10 @@ const Nav = () => {
                 </div>
               </div>
             ) : (
-              <div className="px-4 py-3 border-b border-purple-800/30 bg-black/70 backdrop-blur-2xl">
+              <div className="px-4 py-3 border-b border-blue-800/30 bg-black/70 backdrop-blur-2xl">
                 <button
                   onClick={() => signIn("discord")}
-                  className="w-full text-left px-3 py-2 text-gray-200 hover:text-purple-600"
+                  className="w-full text-left px-3 py-2 text-gray-200 hover:text-blue-600"
                 >
                   Sign In
                 </button>
@@ -202,7 +202,7 @@ const Nav = () => {
               <Link 
                 href="/" 
                 onClick={handleLinkClick}
-                className="flex px-3 py-2 text-gray-200 hover:text-purple-600 rounded-md text-base font-medium items-center space-x-2"
+                className="flex px-3 py-2 text-gray-200 hover:text-blue-600 rounded-md text-base font-medium items-center space-x-2"
               >
                 <AiOutlineHome className="text-xl" />
                 <span>Home</span>
@@ -210,7 +210,7 @@ const Nav = () => {
               <Link 
                 href="/about" 
                 onClick={handleLinkClick}
-                className="flex px-3 py-2 text-gray-200 hover:text-purple-600 rounded-md text-base font-medium items-center space-x-2"
+                className="flex px-3 py-2 text-gray-200 hover:text-blue-600 rounded-md text-base font-medium items-center space-x-2"
               >
                 <BiInfoCircle className="text-xl" />
                 <span>About</span>
