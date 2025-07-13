@@ -38,7 +38,17 @@ const komunitasData: GridItem[] = [
     img: "CSV.png",
     title: "AKSES 1 TAHUN",
     description: "Dapatkan akses ke semua konten kami selama 1 tahun.",
-    price: "Rp 300.000",
+    price: "Rp 400.000",
+    discountPrice: "Rp 200.000",
+    buttons: [
+      { name: "BUY NOW!", link: "https://lynk.id/acforall" },
+    ],
+  },
+  {
+    img: "CSV.png",
+    title: "AKSES 6 BULAN",
+    description: "Dapatkan akses ke semua konten kami selama 6 bulan.",
+    price: "Rp 250.000",
     discountPrice: "Rp 150.000",
     buttons: [
       { name: "BUY NOW!", link: "https://lynk.id/acforall" },
@@ -49,8 +59,8 @@ const komunitasData: GridItem[] = [
     img: "CSV.png",
     title: "AKSES 3 BULAN",
     description: "Dapatkan akses ke semua konten kami selama 3 bulan.",
-    price: "Rp 170.000",
-    discountPrice: "Rp 85.000",
+    price: "Rp 200.000",
+    discountPrice: "Rp 100.000",
     buttons: [
       { name: "BUY NOW!", link: "https://lynk.id/acforall" },
     ],
@@ -60,8 +70,8 @@ const komunitasData: GridItem[] = [
     img: "CSV.png",
     title: "AKSES 1 BULAN",
     description: "Dapatkan akses ke semua konten kami selama 1 bulan.",
-    price: "Rp 120.000",
-    discountPrice: "Rp 60.000",
+    price: "Rp 150.000",
+    discountPrice: "Rp 75.000",
     buttons: [
       { name: "BUY NOW!", link: "https://lynk.id/acforall" },
     ],
