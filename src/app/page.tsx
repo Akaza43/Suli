@@ -20,8 +20,8 @@ export default function HomePage() {
   const [isTrialUser, setIsTrialUser] = useState(false);
 
   const links = {
-    startLearning: "/Halaman/page/1/1/1",
-    moreInfo: "/Halaman/page/1/1/1"
+    startLearning: "/Halaman/page/1/1/",
+    moreInfo: "/Halaman/page/1/1/"
   };
 
   useEffect(() => {

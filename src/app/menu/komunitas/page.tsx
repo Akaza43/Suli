@@ -36,10 +36,10 @@ const komunitasData: GridItem[] = [
  
   {
     img: "CSV.png",
-    title: "AKSES 1 TAHUN",
-    description: "Dapatkan akses ke semua konten kami selama 1 tahun.",
-    price: "Rp 400.000",
-    discountPrice: "Rp 200.000",
+    title: "AKSES 6 BULAN",
+    description: "Dapatkan akses ke semua konten kami selama 6 bulan.",
+    price: "Rp 250.000",
+    discountPrice: "Rp 150.000",
     buttons: [
       { name: "BUY NOW!", link: "https://lynk.id/acforall" },
     ],
