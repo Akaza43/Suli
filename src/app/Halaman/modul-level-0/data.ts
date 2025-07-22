@@ -12,6 +12,12 @@ export const tradingData = [
     category: "Modul Level 0",
   },
   {
+    title: "Bitcoin Zero Sum?",
+    image: "/images/bitcoin-zero-sum.webp", 
+    link: "/Halaman/page/1/11",
+    category: "Modul Level 1",
+  },
+  {
     title: "Cara Set Kriteria Trading",
     image: "/images/cara-set-kriteria-trading.webp", 
     link: "/Halaman/page/3/9",
