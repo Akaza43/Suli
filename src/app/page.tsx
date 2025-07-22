@@ -5,12 +5,10 @@ import Loading from '@/ui/loading';
 import { AccessButton } from '@/components/buttons/AccessButton';
 import BlockchainPage from './Halaman/modul-level-2/page';
 import InvestingPage from './Halaman/modul-level-1/page';
-import LiveclassPage from './Halaman/modul-level-4/page';
 // import MargincallPage from './Halaman/5-margincall/page';
 // import SoonPage from './Halaman/7-soon/page';
 import TradingPage from './Halaman/modul-level-0/page';
 import AllClassesPage from './Halaman/all-classes/page';
-import Lev3Page from './Halaman/modul-level-3/page';
 import { FaPlay } from 'react-icons/fa';
 
 export default function HomePage() {
@@ -182,12 +180,6 @@ export default function HomePage() {
           </div>
           <div className="mt-2 md:mt-8">
             <BlockchainPage />
-          </div>
-          <div className="mt-2 md:mt-8">
-            <Lev3Page />
-          </div>
-          <div className="mt-2 md:mt-8">
-            <LiveclassPage />
           </div>
         </div>
       </div>

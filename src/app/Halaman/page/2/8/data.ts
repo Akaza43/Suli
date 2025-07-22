@@ -1,15 +1,15 @@
 export const Data = [
   {
     id: "1",
-    title: "Exit Strategy",
-    drive: "https://drive.google.com/file/d/1duJqErsITa1mOI_cHkqLXAHruCEnp5zn/view?usp=drive_link",
+    title: "Bear Market Strateg",
+    drive: "https://youtu.be/Pg69XOm6-U4?si=HgUgaqzkTe9iii0V",
     link: "/Halaman/page/2/8/1",
     category: "Bear Market Strategy",
   },
   {
     id: "2",
-    title: "Bear Market Strategy",
-    drive: "https://drive.google.com/file/d/1pSNi6N36usnGybLm6dblpnc8PCpIOOXm/view?usp=drive_link",
+    title: "Exit Strategy",
+    drive: "https://youtu.be/G_H4NPFATcY?si=jN3C1RhcxsitDiuc",
     link: "/Halaman/page/2/8/2",
     category: "Bear Market Strategy",
   },

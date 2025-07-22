@@ -2,14 +2,14 @@ export const Data = [
   {
     id: "1",
     title: "Reclaim and Deviation",
-    drive: "https://drive.google.com/file/d/1dfwB_heGYCWBYProMv2fZs1CjeQzNqUx/view?usp=drive_link",
+    drive: "https://youtu.be/s_XKCjB90Oo?si=Lf0oo5is8ng7TFoF",
     link: "/Halaman/page/4/6/1",
     category: "Auction Market Theory #2",
   },
   {
     id: "2",
     title: "HVN vs LVN",
-    drive: "https://drive.google.com/file/d/1JLN-VOj1LFPC_qgm7nw4A48rhpMjWoVr/view?usp=drive_link",
+    drive: "https://youtu.be/HKjO9YoJdRo?si=MsF6ORvrV10mpyuB",
     link: "/Halaman/page/4/6/2",
     category: "Auction Market Theory #2",
   },

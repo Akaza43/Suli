@@ -64,7 +64,7 @@ export default function InvestingPage() {
           onClick={toggleLayout}
           className="text-sm md:text-2xl font-bold text-white mb-2 md:mb-6 cursor-pointer hover:opacity-80 transition-opacity"
         >
-          Modul Level 1
+          Modul Mira
         </h1>
         <button
           onClick={toggleLayout}

@@ -2,8 +2,8 @@ export const Data = [
   {
     id: "1",
     title: "FAQ and Mind Management",
-    drive: "https://drive.google.com/file/d/1h73AepvbRH5zlcIIvDpIMSsr_r96Vabw/view?usp=drive_link",
+    drive: "https://youtu.be/gExYBVOsWgM?si=VqPnU8o3wgLKepiY",
     link: "/Halaman/page/1/8/1",
-    category: "FAQ and Mind Management",
+    category: "Crypto Mind Management",
   },
 ];

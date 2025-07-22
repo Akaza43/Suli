@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const getGoogleDriveEmbedUrl = (url: string) => {
-  const matches = url.match(/\/d\/(.+?)(?:\/|$|\?)/);
-  const fileId = matches ? matches[1] : "";
-  return `https://drive.google.com/file/d/${fileId}/preview`;
+  const matches = url.match(/(?:v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+  const videoId = matches ? matches[1] : "";
+  return `https://www.youtube.com/embed/${videoId}`;
 };
 
 export default function Container() {
@@ -86,65 +86,75 @@ export default function Container() {
   if (!session || !hasAccess) return null;
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      {/* Header */}
-
+    <div className="min-h-screen bg-black text-black font-sans">
       <div className="flex flex-col lg:flex-row">
         {/* Left: Video Player */}
         <div className="lg:w-[60%]">
-          <div className="p-6 lg:fixed lg:w-[55%] lg:max-w-[800px]">
-            <div className="relative aspect-video bg-black rounded-xl overflow-hidden border border-gray-900">
+          <div className="p-4 lg:p-6 lg:fixed lg:w-[55%] lg:max-w-[900px]">
+            <div className="relative aspect-video bg-black rounded-2xl overflow-hidden border border-black shadow-lg">
               <div
-                className={`absolute top-0 right-0 w-16 h-16 bg-transparent z-10 transition-opacity duration-1000 ${
+                className={`absolute top-0 right-0 w-16 h-16 bg-transparent z-10 transition-opacity duration-1000 cursor-pointer ${
                   hideOverlay ? "opacity-0" : "opacity-100"
                 }`}
                 onClick={handleOverlayClick}
+                title="Next Module"
               />
               {thumbnail ? (
                 <img
                   src={thumbnail}
-                  alt="Thumbnail"
-                  className="w-full h-full object-cover"
+                  alt="Video Thumbnail"
+                  className="w-full h-full object-cover rounded-2xl"
                 />
               ) : videoData?.drive ? (
                 <iframe
                   src={getGoogleDriveEmbedUrl(videoData.drive)}
                   width="100%"
                   height="100%"
-                  frameBorder="0"
+                  title="YouTube video player"
+                  allow="autoplay"
+                  frameBorder="1"
                   allowFullScreen
                   style={{ border: "none" }}
                 />
-              ) : null}
+              ) : (
+                <div className="flex items-center justify-center h-full text-gray-400">
+                  No video available
+                </div>
+              )}
             </div>
-            <h1 className="text-2xl font-bold mt-4 text-white">
-              {videoData?.title}
+            <h1 className="text-2xl lg:text-3xl font-bold mt-4 text-white tracking-tight">
+              {videoData?.title || "Untitled Lesson"}
             </h1>
           </div>
         </div>
 
         {/* Right: Lessons List */}
-        <div className="lg:w-[40%] bg-black border-l border-gray-900 min-h-screen p-6">
-          <h2 className="text-md font-semibold mb-4">
-            Lesson ({Data.length})
+        <div className="lg:w-[40%] bg-black border-l border-black min-h-screen p-4 lg:p-6">
+          <h2 className="text-lg font-semibold mb-4 text-white">
+            Lessons ({Data.length})
           </h2>
-
-          {Data.map((item) => (
-            <div
-              key={item.id}
-              className={`bg-blue-500 text-black font-medium p-4 rounded-xl mb-3 hover:bg-blue-600 transition cursor-pointer flex items-center gap-3 ${
-                videoId === item.id ? "ring-2 ring-orange-600" : ""
-              }`}
-              onClick={() => handleClickLesson(item)}
-            >
-              <img
-                src="/images/play.svg"
-                alt="Play"
-                className="h-5 w-5"
-              />
-              <span>{item.title}</span>
-            </div>
-          ))}
+          <div className="space-y-3">
+            {Data.map((item) => (
+              <div
+                key={item.id}
+                className={`flex items-center gap-3 p-4 rounded-xl transition-all duration-300 cursor-pointer group ${
+                  videoId === item.id
+                    ? "bg-blue-700 ring-2 ring-blue-800 text-black"
+                    : "bg-blue-600 hover:bg-blue-700 text-black"
+                }`}
+                onClick={() => handleClickLesson(item)}
+              >
+                <img
+                  src="/images/play.svg"
+                  alt="Play Icon"
+                  className="h-5 w-5 group-hover:scale-110 transition-transform"
+                />
+                <span className="text-sm lg:text-base font-medium">
+                  {item.title}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

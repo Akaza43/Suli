@@ -11,15 +11,12 @@ export default function InvestingPage() {
   const [isGrid, setIsGrid] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const pathname = usePathname();
-  const scrollContainerRef = useRef<HTMLDivElement>(null); // Ref for the scroll container
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Default to grid layout if pathname matches /Halaman/1-trading
     if (pathname === "/Halaman/1-trading") {
       setIsGrid(true);
     }
-
-    // Retrieve layout state from local storage
     const savedLayout = localStorage.getItem("layout-1");
     if (savedLayout) {
       setIsGrid(savedLayout === "grid");
@@ -30,7 +27,6 @@ export default function InvestingPage() {
     const newLayout = !isGrid;
     setIsGrid(newLayout);
     localStorage.setItem("layout-1", newLayout ? "grid" : "normal");
-
     if (!newLayout) {
       setIsTransitioning(true);
     }
@@ -39,12 +35,8 @@ export default function InvestingPage() {
   useEffect(() => {
     if (isTransitioning && scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      
-      // First set scroll to end instantly
       container.style.scrollBehavior = 'auto';
       container.scrollLeft = container.scrollWidth;
-      
-      // Then scroll to start smoothly after a brief delay
       setTimeout(() => {
         container.style.scrollBehavior = 'smooth';
         container.scrollLeft = 0;
@@ -64,7 +56,7 @@ export default function InvestingPage() {
           onClick={toggleLayout}
           className="text-sm md:text-2xl font-bold text-white mb-2 md:mb-6 cursor-pointer hover:opacity-80 transition-opacity"
         >
-          Modul Level 0
+          Modul Suli
         </h1>
         <button
           onClick={toggleLayout}
@@ -75,8 +67,9 @@ export default function InvestingPage() {
           />
         </button>
       </div>
+
       <div
-        ref={scrollContainerRef} // Attach the ref to the scroll container
+        ref={scrollContainerRef}
         className={`
           transition-all duration-300 ease-in-out
           ${isGrid

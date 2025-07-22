@@ -2,22 +2,22 @@ export const Data = [
   {
     id: "1",
     title: "How to Trade in Ranging Market",
-    drive: "https://drive.google.com/file/d/1E0OXu0VW7s4dbo0FD0iZEltKUA_U4a-O/view?usp=drive_link",
+    drive: "https://youtu.be/DsVraGvKHls?si=t9u8-mKVtExcEJ8K",
     link: "/Halaman/page/4/2/1",
-    category: "-",
+    category: "Trade Setup",
   },
   {
     id: "2",
     title: "How to Trade in Trending Market",
-    drive: "https://drive.google.com/file/d/16Tv6HNGCBT3R2yMfoAzqBgY2EVbTIPDG/view?usp=drive_link",
+    drive: "https://youtu.be/PiV5YQy7kT4?si=-Olb4Cod2x0Ih0Lz",
     link: "/Halaman/page/4/2/2",
-    category: "-",
+    category: "Trade Setup",
   },
   {
     id: "3",
     title: "How to Find Your Edge",
-    drive: "https://drive.google.com/file/d/1mwJjJHf9aOcqmeU28sQHLnB70VCbN3bh/view?usp=drive_link",
+    drive: "https://youtu.be/Dhlb6QAohrg?si=edMmQG7O9ZFI542Y",
     link: "/Halaman/page/4/2/3",
-    category: "-",
+    category: "Trade Setup",
   },
 ];

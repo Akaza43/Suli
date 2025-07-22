@@ -65,6 +65,17 @@
   overflow: hidden;
 }
 
+/* Tambahkan ini di bawah, setelah semua yang sudah kamu punya */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
 @media (max-width: 768px) {
   .prevent-scroll {
     overflow: auto !important;
