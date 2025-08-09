@@ -8,6 +8,8 @@ import InvestingPage from './Halaman/modul-level-1/page';
 // import MargincallPage from './Halaman/5-margincall/page';
 // import SoonPage from './Halaman/7-soon/page';
 import TradingPage from './Halaman/modul-level-0/page';
+import Modul3Page from './Halaman/modul-level-3/page';
+import Modul4Page from './Halaman/modul-level-4/page';
 import AllClassesPage from './Halaman/all-classes/page';
 import { FaPlay } from 'react-icons/fa';
 
@@ -149,7 +151,7 @@ export default function HomePage() {
                 <div className="w-full md:w-1/2 space-y-2 order-2 md:order-2 flex flex-col items-center md:items-end">
                   <div className="relative group border border-gray-800/30 rounded-xl overflow-hidden w-full max-w-xl">
                     <img
-                      src="/images/1.webp"
+                      src="/images/banner.webp"
                       alt="On Bording"
                       className="w-full h-auto max-h-[480px] mt-0 md:mt-8"
                       style={{ display: 'block' }}
@@ -180,6 +182,12 @@ export default function HomePage() {
           </div>
           <div className="mt-2 md:mt-8">
             <BlockchainPage />
+          </div>
+          <div className="mt-2 md:mt-8">
+            <Modul3Page />
+          </div>
+          <div className="mt-2 md:mt-8">
+            <Modul4Page />
           </div>
         </div>
       </div>
