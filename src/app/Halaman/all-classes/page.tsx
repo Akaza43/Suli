@@ -1,62 +1,41 @@
 "use client";
 
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { investingData } from '../modul-level-1/data';
+import { blockchainData } from '../modul-level-2/data';
+import { lev3Data } from '../modul-level-3/data';
+import { liveclassData } from '../modul-level-4/data';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { tradingData } from './data';
 
-export default function InvestingPage() {
-  const [imgError, setImgError] = useState<{ [key: string]: boolean }>({});
-  const [isGrid, setIsGrid] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const pathname = usePathname();
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+export default function AllClassesPage() {
+  const [imgError, setImgError] = useState({});
+  const [isGrid, setIsGrid] = useState(false); // default scroll (bukan grid)
 
-  useEffect(() => {
-    if (pathname === "/Halaman/1-trading") {
-      setIsGrid(true);
-    }
-    const savedLayout = localStorage.getItem("layout-1");
-    if (savedLayout) {
-      setIsGrid(savedLayout === "grid");
-    }
-  }, [pathname]);
+  // Gabungkan semua data modul
+  const allClasses = [
+    ...investingData,
+    ...blockchainData,
+    ...lev3Data,
+    ...liveclassData,
+  ];
 
-  function toggleLayout(): void {
-    const newLayout = !isGrid;
-    setIsGrid(newLayout);
-    localStorage.setItem("layout-1", newLayout ? "grid" : "normal");
-    if (!newLayout) {
-      setIsTransitioning(true);
-    }
+  function handleImageError(link) {
+    setImgError((prev) => ({ ...prev, [link]: true }));
   }
 
-  useEffect(() => {
-    if (isTransitioning && scrollContainerRef.current) {
-      const container = scrollContainerRef.current;
-      container.style.scrollBehavior = 'auto';
-      container.scrollLeft = container.scrollWidth;
-      setTimeout(() => {
-        container.style.scrollBehavior = 'smooth';
-        container.scrollLeft = 0;
-        setIsTransitioning(false);
-      }, 50);
-    }
-  }, [isTransitioning]);
-
-  function handleImageError(title: string): void {
-    setImgError((prev) => ({ ...prev, [title]: true }));
+  function toggleLayout() {
+    setIsGrid((prev) => !prev);
   }
 
   return (
     <div>
-      <div className="flex items-center gap-">
+      <div className="flex items-center gap-2">
         <h1
           onClick={toggleLayout}
           className="text-sm md:text-2xl font-bold text-white mb-2 md:mb-6 cursor-pointer hover:opacity-80 transition-opacity"
         >
-          All Clasess
+          All Classes
         </h1>
         <button
           onClick={toggleLayout}
@@ -69,29 +48,29 @@ export default function InvestingPage() {
       </div>
 
       <div
-        ref={scrollContainerRef}
-        className={`
-          transition-all duration-300 ease-in-out
-          ${isGrid
-            ? "grid grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-6"
+        className={
+          isGrid
+            ? "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-6"
             : "flex overflow-x-auto gap-2 md:gap-6 pb-2 md:pb-4 scrollbar-hide"
-          }
-        `}
+        }
       >
-        {tradingData.map((item, index) => (
+        {allClasses.map((item, index) => (
           <a
             key={index}
             href={item.link}
             rel="noopener noreferrer"
-            className={`
-              overflow-hidden hover:scale-[1.02] transition-transform rounded-lg md:rounded-xl
-              ${isGrid ? "w-full" : "flex-none w-44 md:w-80"}
-            `}
+            className={
+              isGrid
+                ? "overflow-hidden hover:scale-[1.02] transition-transform rounded-lg md:rounded-xl w-full"
+                : "overflow-hidden hover:scale-[1.02] transition-transform rounded-lg md:rounded-xl flex-none w-44 md:w-80"
+            }
           >
             <div className="aspect-video relative rounded-md md:rounded-lg overflow-hidden">
-              {imgError[item.title] ? (
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-[8px] md:text-base text-gray-400">{item.title}</span>
+              {imgError[item.link] ? (
+                <div className="w-full h-full flex items-center justify-center bg-gray-800">
+                  <span className="text-[8px] md:text-base text-gray-400 text-center p-2">
+                    {item.title}
+                  </span>
                 </div>
               ) : (
                 <Image
@@ -101,7 +80,7 @@ export default function InvestingPage() {
                   priority
                   sizes="(max-width: 768px) 176px, 320px"
                   className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
-                  onError={() => handleImageError(item.title)}
+                  onError={() => handleImageError(item.link)}
                 />
               )}
             </div>

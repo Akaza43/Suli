@@ -37,7 +37,7 @@ export const lev3Data= [
   },
   {
     title: "Live Suli",
-    image: "/images/livesuli.webp", 
+    image: "/images/livesuli.svg", 
     link: "/Halaman/page/3/7",
     category: "Modul Level 3",
   },
@@ -55,13 +55,13 @@ export const lev3Data= [
   },
   {
     title: "Live Quant",
-    image: "/images/livequant.webp", 
+    image: "/images/livequant.svg", 
     link: "/Halaman/page/3/10",
     category: "Modul Level 3",
   },
   {
     title: "Live Mira",
-    image: "/images/livemira.webp", 
+    image: "/images/livemira.png", 
     link: "/Halaman/page/3/11",
     category: "Modul Level 3",
   },
