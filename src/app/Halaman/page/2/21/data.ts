@@ -7,14 +7,14 @@ export const Data = [
     category: "Memecoin Screening: Basics",
   },
   {
-    id: "1",
+    id: "2",
     title: "Cara Pakai Dexscreener",
     drive: "https://youtu.be/2EL0eW8pzyk",
     link: "/Halaman/page/2/21/2",
     category: "Memecoin Screening: Basics",
   },
   {
-    id: "1",
+    id: "3",
     title: "Apa itu Contract Address",
     drive: "https://youtu.be/H_4oCu24jtc",
     link: "/Halaman/page/2/21/3",

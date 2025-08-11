@@ -1,12 +1,6 @@
 export const liveclassData= [
   {
     title: "-",
-    image: "/images/D2.webp", 
-    link: "/Halaman/page/4/1",
-    category: "Modul Level 4",
-  },
-  {
-    title: "-",
     image: "/images/D3.webp", 
     link: "/Halaman/page/4/2",
     category: "Modul Level 4",
@@ -45,12 +39,6 @@ export const liveclassData= [
     title: "-",
     image: "/images/exsecutiuon.webp", 
     link: "/Halaman/page/4/8",
-    category: "Modul Level 4",
-  },
-  {
-    title: "Trend Following Advanced: Timing The Crypto Cycle",
-    image: "/images/-.webp", 
-    link: "/Halaman/page/4/9",
     category: "Modul Level 4",
   },
 ];
