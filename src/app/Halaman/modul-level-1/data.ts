@@ -1,5 +1,11 @@
 export const investingData = [
   {
+    title: "Cara Recovery",
+    image: "/images/cara-re.webp", 
+    link: "/Halaman/page/1/13",
+    category: "Modul Level 0",
+  },
+  {
     title: "Crypto Fundamentals Guide",
     image: "/images/A2.webp", 
     link: "/Halaman/page/1/2",

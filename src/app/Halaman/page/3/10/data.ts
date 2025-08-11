@@ -111,4 +111,11 @@ export const Data = [
     link: "/Halaman/page/3/10/16",
     category: "Member Only Live Replay",
   },
+  {
+    id: "16",
+    title: "Quant Live 05 Agu 2025",
+    drive: "https://youtu.be/65y15LL6pLc?si=GU-AwznAZ_t8ldZD",
+    link: "/Halaman/page/3/10/17",
+    category: "Member Only Live Replay",
+  },
 ];
