@@ -31,7 +31,7 @@ export const liveclassData= [
   },
   {
     title: "Trend Following Advanced: Timing Altcoin Season",
-    image: "/images/-.webp", 
+    image: "/images/trend-following-advanced-timing-altcoin-season.webp", 
     link: "/Halaman/page/4/7",
     category: "Modul Level 4",
   },

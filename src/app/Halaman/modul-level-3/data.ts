@@ -7,7 +7,7 @@ export const lev3Data= [
   },
   {
     title: "Trend Following Advanced: Timing The Crypto Cycle",
-    image: "/images/-.webp", 
+    image: "/images/trand-bassic.webp", 
     link: "/Halaman/page/4/9",
     category: "Modul Level 4",
   },

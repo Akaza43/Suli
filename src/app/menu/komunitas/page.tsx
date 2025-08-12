@@ -84,13 +84,7 @@ export default function KomunitasPage() {
   return (
     <div className="min-h-screen relative">
       <div
-        className="fixed inset-0 z-0"
-        style={{
-          backgroundImage: "url('/background.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
+        className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-black/80" />
       </div>
 

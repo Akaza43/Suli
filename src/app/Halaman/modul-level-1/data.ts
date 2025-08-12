@@ -115,7 +115,7 @@ export const investingData = [
   },
   {
     title: "Crypto Liquidity Analysis",
-    image: "/images/-.webp", 
+    image: "/images/crypto-liuidity-analysis.webp", 
     link: "/Halaman/page/2/20",
     category: "Modul Level 1",
   },
@@ -133,7 +133,7 @@ export const investingData = [
   },
   {
     title: "Crypto Orderblock Analysis",
-    image: "/images/-.webp", 
+    image: "/images/crypto-orderblock-analysis.webp", 
     link: "/Halaman/page/2/23",
     category: "Modul Level 1",
   },

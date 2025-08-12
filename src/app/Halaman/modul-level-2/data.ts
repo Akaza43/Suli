@@ -43,7 +43,7 @@ export const blockchainData = [
   },
   {
     title: "-",
-    image: "/images/trand-bassic.webp", 
+    image: "/images/trand-bassic-0.webp", 
     link: "/Halaman/page/3/8",
     category: "Modul Level 3",
   },
