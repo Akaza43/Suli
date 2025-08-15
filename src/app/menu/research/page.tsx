@@ -219,15 +219,15 @@ export default function ResearchPage() {
         </h1>
 
         {/* Filter Buttons */}
-        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-4">
+        <div className="grid grid-cols-3 gap-2 sm:gap-4 max-w-md mx-auto mb-4">
           {["Semua", "Beginner", "Deep Dive"].map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-lg font-semibold transition ${
+              className={`px-2 py-1 sm:px-4 sm:py-2 rounded-lg font-semibold text-xs sm:text-sm md:text-base transition ${
                 filter === cat
                   ? "bg-blue-600 text-white"
-                  : "bg-gray-900 text-gray-300 hover:bg-gray-900"
+                  : "bg-gray-900 text-gray-300 hover:bg-gray-800"
               }`}
             >
               {cat}
