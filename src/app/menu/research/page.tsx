@@ -2,9 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Loading from '@/ui/loading';
-import { AccessButton } from '@/components/buttons/AccessButton';
-import { createClient } from '@supabase/supabase-js';
+import Loading from "@/ui/loading";
+import { AccessButton } from "@/components/buttons/AccessButton";
+import { createClient } from "@supabase/supabase-js";
+import { FaSearch } from "react-icons/fa";
 
 export interface GridItem {
   id: number;
@@ -35,9 +36,7 @@ const ReusableGrid = ({ data }: { data: GridItem[] }) => {
                 className="w-full h-auto object-contain"
               />
               <div className="p-4">
-                <span className="text-xs font-semibold text-blue-400">
-                  {item.category}
-                </span>
+                <span className="text-xs font-semibold text-blue-400">{item.category}</span>
                 <h3 className="font-semibold mt-1 text-white">{item.title}</h3>
                 <button
                   onClick={() => window.open(item.link, "_blank")}
@@ -61,16 +60,20 @@ export default function ResearchPage() {
   const { data: session, status } = useSession();
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
-  const [researchData, setResearchData] = useState<GridItem[]>([]);
 
+  const [beginnerData, setBeginnerData] = useState<GridItem[]>([]);
+  const [deepDiveData, setDeepDiveData] = useState<GridItem[]>([]);
+  const [researchData, setResearchData] = useState<GridItem[]>([]);
+  const [filter, setFilter] = useState("Semua");
+  const [searchTerm, setSearchTerm] = useState(""); // state tambahan
+
+  // Check access
   useEffect(() => {
     const checkAccess = async () => {
       if (session?.accessToken) {
         try {
           const response = await fetch("/api/verify-role", {
-            headers: {
-              Authorization: `Bearer ${session.accessToken}`,
-            },
+            headers: { Authorization: `Bearer ${session.accessToken}` },
           });
 
           if (!response.ok && response.status === 429) {
@@ -101,27 +104,48 @@ export default function ResearchPage() {
     }
   }, [session, status]);
 
+  // Fetch data from beginnersuli & deepdrivesuli
   useEffect(() => {
     if (hasAccess) {
-      const fetchResearch = async () => {
-        const { data, error } = await supabase
-          .from("researchsuli")
+      const fetchData = async () => {
+        const { data: beginner, error: beginnerErr } = await supabase
+          .from("beginnersuli")
           .select("id, title, image, link, category")
           .order("id", { ascending: false });
 
-        if (error) {
-          console.error("Error fetching data:", error);
-        } else {
-          setResearchData(data || []);
-        }
+        const { data: deepDive, error: deepErr } = await supabase
+          .from("deepdrivesuli")
+          .select("id, title, image, link, category")
+          .order("id", { ascending: false });
+
+        if (beginnerErr) console.error(beginnerErr);
+        if (deepErr) console.error(deepErr);
+
+        setBeginnerData(beginner || []);
+        setDeepDiveData(deepDive || []);
       };
-      fetchResearch();
+
+      fetchData();
     }
   }, [hasAccess]);
 
-  if (loading || status === "loading") {
-    return <Loading />;
-  }
+  // Update researchData when filter changes
+  useEffect(() => {
+    if (filter === "Semua") {
+      setResearchData([...beginnerData, ...deepDiveData]);
+    } else if (filter === "Beginner") {
+      setResearchData(beginnerData);
+    } else if (filter === "Deep Dive") {
+      setResearchData(deepDiveData);
+    }
+  }, [filter, beginnerData, deepDiveData]);
+
+  // hasil filter search
+  const filteredData = researchData.filter((item) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  if (loading || status === "loading") return <Loading />;
 
   if (!session) {
     return (
@@ -133,15 +157,9 @@ export default function ResearchPage() {
           <p className="text-gray-400 mb-6 text-sm">
             Silahkan login untuk mengakses semua fitur premium kami:
             <ul className="mt-2 space-y-1">
-              <li className="flex items-center gap-2">
-                <span className="text-purple-400">•</span> Modul pembelajaran crypto
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-blue-400">•</span> Research dan analisis pasar
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-green-400">•</span> Komunitas ekslusif
-              </li>
+              <li className="flex items-center gap-2"><span className="text-purple-400">•</span> Modul pembelajaran crypto</li>
+              <li className="flex items-center gap-2"><span className="text-blue-400">•</span> Research dan analisis pasar</li>
+              <li className="flex items-center gap-2"><span className="text-green-400">•</span> Komunitas ekslusif</li>
             </ul>
           </p>
           <button
@@ -185,11 +203,51 @@ export default function ResearchPage() {
         <div className="absolute inset-0 bg-black/80" />
       </div>
       <div className="relative z-10 container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-white mb-8 text-center">
+        {/* Banner Image */}
+        <div className="flex justify-center mb-6">
+          <img
+            src="/images/bannerresearch.png"
+            alt="Trade With Suli"
+            className="max-w-full h-auto rounded-lg"
+          />
+        </div>
+
+        {/* Title */}
+        <h1 className="text-3xl font-bold text-white mb-4 text-center">
           RESEARCH
           <div className="mt-2 w-16 h-1 mx-auto bg-blue-500 rounded" />
         </h1>
-        <ReusableGrid data={researchData} />
+
+        {/* Filter Buttons */}
+        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-4">
+          {["Semua", "Beginner", "Deep Dive"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-2 rounded-lg font-semibold transition ${
+                filter === cat
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-900 text-gray-300 hover:bg-gray-900"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Search Bar */}
+        <div className="flex items-center max-w-md mx-auto bg-gray-900 rounded-lg px-3 py-2 mb-8 border border-gray-800 focus-within:border-blue-500 transition">
+          <FaSearch className="text-gray-400 mr-2" />
+          <input
+            type="text"
+            placeholder="Cari research..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="bg-transparent focus:outline-none text-white placeholder:text-gray-500"
+          />
+        </div>
+
+        <ReusableGrid data={filteredData} />
       </div>
     </div>
   );
