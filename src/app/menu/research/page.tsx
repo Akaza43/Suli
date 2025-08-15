@@ -23,7 +23,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const ReusableGrid = ({ data }: { data: GridItem[] }) => {
   return (
     <div className="min-h-screen relative">
-      <div className="container mx-auto px-4 py-8">
+      <div className="container max-w-screen-xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.map((item) => (
             <div
@@ -65,7 +65,7 @@ export default function ResearchPage() {
   const [deepDiveData, setDeepDiveData] = useState<GridItem[]>([]);
   const [researchData, setResearchData] = useState<GridItem[]>([]);
   const [filter, setFilter] = useState("Semua");
-  const [searchTerm, setSearchTerm] = useState(""); // state tambahan
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Check access
   useEffect(() => {
@@ -108,13 +108,13 @@ export default function ResearchPage() {
   useEffect(() => {
     if (hasAccess) {
       const fetchData = async () => {
-        const { data: beginner, error: beginnerErr } = await supabase
-          .from("beginnersuli")
+        const { data: deepDive, error: deepErr } = await supabase
+          .from("deepdrivesuli")
           .select("id, title, image, link, category")
           .order("id", { ascending: false });
 
-        const { data: deepDive, error: deepErr } = await supabase
-          .from("deepdrivesuli")
+        const { data: beginner, error: beginnerErr } = await supabase
+          .from("beginnersuli")
           .select("id, title, image, link, category")
           .order("id", { ascending: false });
 
@@ -132,11 +132,11 @@ export default function ResearchPage() {
   // Update researchData when filter changes
   useEffect(() => {
     if (filter === "Semua") {
-      setResearchData([...beginnerData, ...deepDiveData]);
-    } else if (filter === "Beginner") {
-      setResearchData(beginnerData);
+      setResearchData([...deepDiveData, ...beginnerData]);
     } else if (filter === "Deep Dive") {
       setResearchData(deepDiveData);
+    } else if (filter === "Beginner") {
+      setResearchData(beginnerData);
     }
   }, [filter, beginnerData, deepDiveData]);
 
@@ -202,7 +202,7 @@ export default function ResearchPage() {
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-black/80" />
       </div>
-      <div className="relative z-10 container mx-auto px-4 py-8">
+      <div className="relative z-10 container max-w-screen-xl mx-auto px-4 py-8">
         {/* Banner Image */}
         <div className="flex justify-center mb-6">
           <img
@@ -219,7 +219,7 @@ export default function ResearchPage() {
         </h1>
 
         {/* Filter Buttons */}
-        <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-4">
+        <div className="grid grid-cols-3 gap-4 w-full mx-auto mb-4">
           {["Semua", "Beginner", "Deep Dive"].map((cat) => (
             <button
               key={cat}
@@ -227,7 +227,7 @@ export default function ResearchPage() {
               className={`px-3 py-2 rounded-lg font-semibold transition ${
                 filter === cat
                   ? "bg-blue-600 text-white"
-                  : "bg-gray-900 text-gray-300 hover:bg-gray-900"
+                  : "bg-gray-900 text-gray-300 hover:bg-gray-800"
               }`}
             >
               {cat}
@@ -236,14 +236,14 @@ export default function ResearchPage() {
         </div>
 
         {/* Search Bar */}
-        <div className="flex items-center max-w-md mx-auto bg-gray-900 rounded-lg px-3 py-2 mb-8 border border-gray-800 focus-within:border-blue-500 transition">
+        <div className="flex items-center w-full mx-auto bg-gray-900 rounded-lg px-3 py-2 mb-8 border border-gray-800 focus-within:border-blue-500 transition">
           <FaSearch className="text-gray-400 mr-2" />
           <input
             type="text"
             placeholder="Cari research..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="bg-transparent focus:outline-none text-white placeholder:text-gray-500"
+            className="bg-transparent focus:outline-none text-white placeholder:text-gray-500 w-full"
           />
         </div>
 

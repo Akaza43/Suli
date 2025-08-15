@@ -6,7 +6,6 @@ import {
   IoBookOutline,
   IoDocumentTextOutline,
   IoPeopleOutline,
-  IoNewspaperOutline,
 } from "react-icons/io5";
 import { domainConfigs, navigationLinks } from "@/components/data/links";
 
@@ -18,7 +17,9 @@ const Menu = () => {
   const [komunitasExternal, setKomunitasExternal] = useState(false);
 
   useEffect(() => {
-    const config = domainConfigs.find(d => d.hostname === window.location.hostname);
+    const config = domainConfigs.find(
+      (d) => d.hostname === window.location.hostname
+    );
     setKomunitasUrl(config?.url || "/menu/komunitas");
     setKomunitasExternal(config?.openInNewTab ?? false);
   }, []);
@@ -35,7 +36,7 @@ const Menu = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-black/90 border-t border-gray-900 z-50">
-      <nav className="flex justify-around max-w-md mx-auto">
+      <nav className="flex justify-around w-full">
 
         {/* MODUL */}
         <button
