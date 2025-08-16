@@ -219,21 +219,22 @@ export default function ResearchPage() {
         </h1>
 
         {/* Filter Buttons */}
-        <div className="grid grid-cols-3 gap-4 w-full mx-auto mb-4">
-          {["Semua", "Beginner", "Deep Dive"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-3 py-2 rounded-lg font-semibold transition ${
-                filter === cat
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-900 text-gray-300 hover:bg-gray-800"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+       <div className="flex gap-4 w-full mx-auto mb-4">
+  {["Semua", "Beginner", "Deep Dive"].map((cat) => (
+    <button
+      key={cat}
+      onClick={() => setFilter(cat)}
+      className={`flex-1 py-2 rounded-lg font-semibold transition text-center ${
+        filter === cat
+          ? "bg-blue-600 text-white"
+          : "bg-gray-900 text-gray-300 hover:bg-gray-800"
+      }`}
+    >
+      {cat}
+    </button>
+  ))}
+</div>
+
 
         {/* Search Bar */}
         <div className="flex items-center w-full mx-auto bg-gray-900 rounded-lg px-3 py-2 mb-8 border border-gray-800 focus-within:border-blue-500 transition">
