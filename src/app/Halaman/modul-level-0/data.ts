@@ -6,15 +6,21 @@ export const tradingData = [
     category: "Modul Level 0",
   },
   {
-    title: "Bitcoin Zero Sum",
-    image: "/images/bitcoin-zero-sum.webp",
-    link: "/Halaman/page/1/11",
+    title: "Eth Supercycle",
+    image: "/images/eth-supecycle.webp",
+    link: "/Halaman/page/1/14",
     category: "Modul Level 0",
   },
   {
     title: "Cara Recovery",
     image: "/images/cara-re.webp", 
     link: "/Halaman/page/1/13",
+    category: "Modul Level 0",
+  },
+  {
+    title: "Bitcoin Zero Sum",
+    image: "/images/bitcoin-zero-sum.webp",
+    link: "/Halaman/page/1/11",
     category: "Modul Level 0",
   },
   {

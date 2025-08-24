@@ -61,8 +61,6 @@ export default function ResearchPage() {
   const [hasAccess, setHasAccess] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const [beginnerData, setBeginnerData] = useState<GridItem[]>([]);
-  const [deepDiveData, setDeepDiveData] = useState<GridItem[]>([]);
   const [researchData, setResearchData] = useState<GridItem[]>([]);
   const [filter, setFilter] = useState("Semua");
   const [searchTerm, setSearchTerm] = useState("");
@@ -104,41 +102,30 @@ export default function ResearchPage() {
     }
   }, [session, status]);
 
-  // Fetch data from beginnersuli & deepdrivesuli
+  // Fetch data dari supabase sesuai filter
   useEffect(() => {
     if (hasAccess) {
       const fetchData = async () => {
-        const { data: deepDive, error: deepErr } = await supabase
-          .from("deepdrivesuli")
-          .select("id, title, image, link, category")
-          .order("id", { ascending: false });
+        try {
+          let tableName = "semuasuli"; // default
+          if (filter === "Beginner") tableName = "beginnersuli";
+          if (filter === "Deep Dive") tableName = "deepdrivesuli";
 
-        const { data: beginner, error: beginnerErr } = await supabase
-          .from("beginnersuli")
-          .select("id, title, image, link, category")
-          .order("id", { ascending: false });
+          const { data, error } = await supabase
+            .from(tableName)
+            .select("id, title, image, link, category")
+            .order("id", { ascending: false });
 
-        if (beginnerErr) console.error(beginnerErr);
-        if (deepErr) console.error(deepErr);
-
-        setBeginnerData(beginner || []);
-        setDeepDiveData(deepDive || []);
+          if (error) throw error;
+          setResearchData(data || []);
+        } catch (err) {
+          console.error("Error fetch supabase:", err);
+        }
       };
 
       fetchData();
     }
-  }, [hasAccess]);
-
-  // Update researchData when filter changes
-  useEffect(() => {
-    if (filter === "Semua") {
-      setResearchData([...deepDiveData, ...beginnerData]);
-    } else if (filter === "Deep Dive") {
-      setResearchData(deepDiveData);
-    } else if (filter === "Beginner") {
-      setResearchData(beginnerData);
-    }
-  }, [filter, beginnerData, deepDiveData]);
+  }, [hasAccess, filter]);
 
   // hasil filter search
   const filteredData = researchData.filter((item) =>
@@ -219,22 +206,21 @@ export default function ResearchPage() {
         </h1>
 
         {/* Filter Buttons */}
-       <div className="flex gap-4 w-full mx-auto mb-4">
-  {["Semua", "Beginner", "Deep Dive"].map((cat) => (
-    <button
-      key={cat}
-      onClick={() => setFilter(cat)}
-      className={`flex-1 py-2 rounded-lg font-semibold transition text-center ${
-        filter === cat
-          ? "bg-blue-600 text-white"
-          : "bg-gray-900 text-gray-300 hover:bg-gray-800"
-      }`}
-    >
-      {cat}
-    </button>
-  ))}
-</div>
-
+        <div className="flex gap-4 w-full mx-auto mb-4">
+          {["Semua", "Beginner", "Deep Dive"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`flex-1 py-2 rounded-lg font-semibold transition text-center ${
+                filter === cat
+                  ? "bg-blue-600 text-white"
+                  : "bg-gray-900 text-gray-300 hover:bg-gray-800"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
         {/* Search Bar */}
         <div className="flex items-center w-full mx-auto bg-gray-900 rounded-lg px-3 py-2 mb-8 border border-gray-800 focus-within:border-blue-500 transition">
